@@ -1,0 +1,81 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{theme/vsak-components}[2026/09/24 Komponenty slidu VSAK]
+\RequirePackage[most]{tcolorbox}
+
+\tcbset{
+  vsak callout/.style={
+    enhanced jigsaw,
+    boxrule=.35pt,
+    leftrule=1.5mm,
+    arc=2.2mm,
+    outer arc=2.2mm,
+    boxsep=0pt,
+    left=3.6mm,
+    right=3.6mm,
+    top=2.5mm,
+    bottom=2.6mm,
+    before skip=2.5mm,
+    after skip=2.5mm,
+    fontupper=\normalsize\color{vsakText}
+  }
+}
+
+% Jednotna typografie nadpisu vsech vyznamovych karet.
+\newcommand{\vsakCalloutTitle}[2]{%
+  {\color{#1}\small\bfseries\strut #2}%
+  \par\vspace{.7mm}%
+}
+
+\newtcolorbox{Note}{
+  vsak callout,
+  colback=vsakNote!4!white,
+  colframe=vsakNote!82!black,
+  before upper={\vsakCalloutTitle{vsakNote}{Poznámka}}
+}
+\newtcolorbox{Tip}{
+  vsak callout,
+  colback=vsakTip!4!white,
+  colframe=vsakTip!82!black,
+  before upper={\vsakCalloutTitle{vsakTip}{Tip}}
+}
+\newtcolorbox{Important}{
+  vsak callout,
+  colback=vsakImportant!4!white,
+  colframe=vsakImportant!82!black,
+  before upper={\vsakCalloutTitle{vsakImportant}{Důležité}}
+}
+\newtcolorbox{Warning}{
+  vsak callout,
+  colback=vsakWarning!5!white,
+  colframe=vsakWarning!88!black,
+  before upper={\vsakCalloutTitle{vsakWarning}{Varování}}
+}
+\newtcolorbox{Caution}{
+  vsak callout,
+  colback=vsakCaution!4!white,
+  colframe=vsakCaution!82!black,
+  before upper={\vsakCalloutTitle{vsakCaution}{Pozor}}
+}
+
+\newtcolorbox{Rule}{
+  vsak callout,
+  colback=vsakDeepBlue!4!white,
+  colframe=vsakDeepBlue,
+  before upper={\vsakCalloutTitle{vsakDeepBlue}{Pravidlo}}
+}
+
+\newcommand{\vsakImagePlaceholder}[2][34mm]{%
+  \begin{tcolorbox}[
+    enhanced jigsaw,
+    height=#1,
+    colback=vsakCardWhite!72!white,
+    colframe=vsakPanelBlue,
+    boxrule=.45pt,
+    arc=2.2mm,
+    boxsep=0pt,
+    valign=center,
+    halign=center
+  ]
+    \color{vsakMuted}\bfseries #2
+  \end{tcolorbox}%
+}

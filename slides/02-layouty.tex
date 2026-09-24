@@ -1,0 +1,50 @@
+\section{Layouty}
+
+\begin{frame}{Běžný obsahový slide}
+  \framesubtitle{Nadpis říká závěr, obsah ho dokládá}
+  \begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{.48\textwidth}
+      \textbf{Dobře funguje}
+      \begin{itemize}
+        \item jedna hlavní myšlenka,
+        \item tři až pět stručných bodů,
+        \item zvýraznění jen toho podstatného,
+        \item dostatek prázdného místa.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.48\textwidth}
+      \textbf{Raději rozděl}
+      \begin{itemize}
+        \item několik různých témat,
+        \item dlouhé odstavce,
+        \item tabulku i velkou fotografii zároveň,
+        \item více než dva callouty.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \begin{Note}
+    Sekční předěly se vloží automaticky před každým \texttt{\textbackslash section\{...\}}.
+  \end{Note}
+\end{frame}
+
+\begin{frame}[fragile]{Text a fotografie vedle sebe}
+  \begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{.46\textwidth}
+      \textbf{Kdy layout použít}
+      \begin{itemize}
+        \item fotografie ukazuje konkrétní detail,
+        \item text vysvětluje, čeho si všimnout,
+        \item obě poloviny mají podobnou váhu.
+      \end{itemize}
+      \vspace{2mm}
+      \begin{verbatim}
+\includegraphics[
+  width=\linewidth
+]{assets/foto.jpg}
+      \end{verbatim}
+    \end{column}
+    \begin{column}{.49\textwidth}
+      \vsakImagePlaceholder[48mm]{místo pro fotografii}
+    \end{column}
+  \end{columns}
+\end{frame}

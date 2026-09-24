@@ -1,0 +1,40 @@
+\section{Začínáme}
+
+\begin{frame}{Co je kde}
+  \framesubtitle{Obsah se mění často, motiv skoro vůbec}
+  \begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{.48\textwidth}
+      \textbf{Pro každou prezentaci}
+      \begin{itemize}
+        \item \texttt{presentation-config.tex}\\ název, autor, datum a titulka
+        \item \texttt{slides/*.tex}\\ jednotlivé kapitoly a slidy
+        \item \texttt{assets/}\\ loga, fotografie a diagramy
+      \end{itemize}
+    \end{column}
+    \begin{column}{.48\textwidth}
+      \textbf{Sdílený vzhled}
+      \begin{itemize}
+        \item \texttt{beamerthemeVSAK.sty}\\ titulka, hlavička a patička
+        \item \texttt{vsak-colors.sty}\\ jediný zdroj barev
+        \item \texttt{vsak-components.sty}\\ boxy a pomocné prvky
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \begin{Tip}
+    Běžně stačí upravovat konfiguraci, soubory ve \texttt{slides/} a vlastní obrázky.
+  \end{Tip}
+\end{frame}
+
+\begin{frame}{Jak vznikne prezentace}
+  \framesubtitle{Čtyři kroky od kopie šablony k hotovému PDF}
+  \begin{enumerate}
+    \item Uprav metadata v \texttt{presentation-config.tex}.
+    \item Rozděl obsah do tematických souborů v \texttt{slides/}.
+    \item Vlož obrázky do \texttt{assets/} a použij relativní cestu.
+    \item Sestav prezentaci z hlavního souboru \texttt{main.tex}.
+  \end{enumerate}
+  \vspace{4mm}
+  \begin{Rule}
+    Jeden soubor se slidy = jedna kapitola. Novou kapitolu připoj jediným příkazem \texttt{\textbackslash input} v \texttt{main.tex}.
+  \end{Rule}
+\end{frame}

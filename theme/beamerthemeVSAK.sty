@@ -1,0 +1,170 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{theme/beamerthemeVSAK}[2026/09/24 Beamer motiv VSAK]
+
+\RequirePackage{microtype}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{ragged2e}
+\RequirePackage{tikz}
+\usetikzlibrary{calc,positioning}
+\RequirePackage{theme/vsak-colors}
+\RequirePackage{theme/vsak-components}
+
+\providecommand{\vsakAssetDir}{assets}
+\providecommand{\vsakTitleSideItems}{%
+  \item Úvod
+  \item Hlavní téma
+  \item Praxe
+  \item Shrnutí
+}
+
+\mode<presentation>{
+  \usetheme{default}
+  \usefonttheme{professionalfonts}
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamercolor{normal text}{fg=vsakText,bg=vsakPageBg}
+  \setbeamercolor{background canvas}{bg=vsakPageBg}
+  \setbeamercolor{frametitle}{fg=vsakOrange,bg=vsakPageBg}
+  \setbeamercolor{framesubtitle}{fg=vsakText,bg=vsakPageBg}
+  \setbeamercolor{title}{fg=vsakOrange}
+  \setbeamercolor{subtitle}{fg=vsakText}
+  \setbeamercolor{structure}{fg=vsakOrange}
+  \setbeamercolor{alerted text}{fg=vsakOrange}
+  \setbeamercolor{block title}{fg=vsakOrange,bg=vsakCardWhite}
+  \setbeamercolor{block body}{fg=vsakText,bg=vsakCardWhite}
+  \setbeamercolor{footlinebox}{fg=vsakText,bg=vsakCardWhite}
+}
+
+\setbeamersize{text margin left=10mm,text margin right=10mm}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{subtitle}{size=\large,series=\bfseries}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\normalsize}
+\setbeamerfont{footline}{size=\scriptsize}
+\setbeamerfont{caption}{size=\scriptsize}
+
+\setbeamertemplate{itemize item}{\color{vsakOrange}\raisebox{.15ex}{\tiny$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\color{vsakMuted}\raisebox{.15ex}{\tiny$\bullet$}}
+\setbeamertemplate{enumerate item}{\color{vsakOrange}\insertenumlabel.}
+
+\newcommand{\vsakLogo}{%
+  \includegraphics[height=7.2mm]{\vsakAssetDir/vsak_logo_ctverec.pdf}%
+}
+\newcommand{\vsakMountains}[2]{%
+  \draw[#1,line width=1.15pt,opacity=#2,line join=round,line cap=round]
+    (0,0) -- ++(12mm,4mm) -- ++(9mm,-2mm) -- ++(10mm,11mm)
+    -- ++(10mm,-8mm) -- ++(8mm,3mm) -- ++(12mm,16mm)
+    -- ++(10mm,-12mm) -- ++(9mm,4mm) -- ++(12mm,-5mm)
+    -- ++(11mm,14mm) -- ++(13mm,-10mm) -- ++(14mm,5mm);
+}
+
+\setbeamertemplate{frametitle}{%
+  \vspace{1.5mm}
+  \begin{beamercolorbox}[wd=\paperwidth,sep=0pt,leftskip=10mm,rightskip=10mm]{frametitle}
+    {\usebeamerfont{frametitle}\insertframetitle\par}
+    \ifx\insertframesubtitle\empty\else
+      {\usebeamerfont{framesubtitle}\color{vsakText}\insertframesubtitle\par}
+    \fi
+  \end{beamercolorbox}
+  \vspace{1mm}
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[vsakLine]
+      ([xshift=10mm,yshift=-13.8mm]current page.north west)
+      rectangle ([xshift=-10mm,yshift=-14.7mm]current page.north east);
+    \draw[vsakOrange,line width=1pt]
+      ([xshift=10mm,yshift=-14.25mm]current page.north west) -- ++(34mm,0);
+    \draw[vsakPanelBlue,line width=.6pt]
+      ([xshift=45mm,yshift=-14.25mm]current page.north west)
+      -- ([xshift=-10mm,yshift=-14.25mm]current page.north east);
+  \end{tikzpicture}
+}
+
+\setbeamertemplate{footline}{%
+  \leavevmode
+  \hbox{%
+    \begin{beamercolorbox}[wd=.12\paperwidth,ht=8.8mm,dp=2mm,leftskip=5mm]{footlinebox}
+      \raisebox{-.15mm}{\vsakLogo}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.66\paperwidth,ht=8.8mm,dp=2mm]{footlinebox}
+      \hspace*{-2mm}\color{vsakText}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.22\paperwidth,ht=8.8mm,dp=2mm,rightskip=7mm plus 1fil]{footlinebox}
+      \hfill\color{vsakText}\insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}%
+  }
+}
+
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[vsakPageBg] (current page.south west) rectangle (current page.north east);
+    \fill[vsakDeepBlue]
+      (current page.south west) rectangle ([xshift=.225\paperwidth]current page.north west);
+    \fill[vsakOrange]
+      ([xshift=.225\paperwidth]current page.south west)
+      rectangle ([xshift=.233\paperwidth]current page.north west);
+
+    \begin{scope}
+      \clip ([xshift=.233\paperwidth]current page.south west) rectangle (current page.north east);
+      \begin{scope}[shift={([xshift=.27\paperwidth,yshift=-9mm]current page.south west)}]
+        \vsakMountains{vsakPanelBlue}{.44}
+      \end{scope}
+      \begin{scope}[shift={([xshift=.36\paperwidth,yshift=-12mm]current page.south west)}]
+        \vsakMountains{vsakPanelBlue}{.32}
+      \end{scope}
+    \end{scope}
+
+    \pgfmathsetlengthmacro{\vsakTitleLogoHeight}{.65\paperwidth * 7.24 / 21.59}
+    \fill[white,rounded corners=3pt]
+      ([xshift=.265\paperwidth,yshift=-8mm]current page.north west)
+      rectangle
+      ([xshift=.945\paperwidth,yshift={-8mm-\vsakTitleLogoHeight}]current page.north west);
+    \node[anchor=north west,inner sep=0pt]
+      at ([xshift=.28\paperwidth,yshift=-8mm]current page.north west)
+      {\includegraphics[width=.65\paperwidth]{\vsakAssetDir/potisk-trika-zada.pdf}};
+
+    \node[anchor=north west,align=left,text width=.62\paperwidth]
+      at ([xshift=.285\paperwidth,yshift=-51mm]current page.north west)
+      {{\color{vsakOrange}\fontsize{21}{25}\selectfont\bfseries\inserttitle}};
+    \node[anchor=north west,align=left,text width=.62\paperwidth]
+      at ([xshift=.285\paperwidth,yshift=-65mm]current page.north west)
+      {{\color{vsakText}\fontsize{13}{17}\selectfont\bfseries\insertsubtitle}};
+    \node[anchor=north west,align=left,text width=.62\paperwidth]
+      at ([xshift=.285\paperwidth,yshift=-78mm]current page.north west)
+      {{\color{vsakText}\large\insertauthor}\par\vspace{1mm}
+       {\color{vsakMuted}\normalsize\insertdate}};
+
+    {\setbeamercolor{itemize/enumerate body}{fg=white}
+      \node[anchor=north west,align=left,text width=.19\paperwidth,text=white]
+        at ([xshift=0mm,yshift=-51mm]current page.north west)
+        {\small\begin{itemize}\setlength{\itemsep}{1.5mm}\vsakTitleSideItems\end{itemize}};
+    }
+  \end{tikzpicture}%
+}
+
+\AtBeginSection[]{%
+  \begin{frame}[plain,noframenumbering]
+    \begin{tikzpicture}[remember picture,overlay]
+      \fill[vsakDeepBlue] (current page.south west) rectangle (current page.north east);
+      \fill[vsakOrange] (current page.south west) rectangle ([xshift=8mm]current page.north west);
+      \begin{scope}
+        \clip ([xshift=8mm]current page.south west) rectangle (current page.north east);
+        \begin{scope}[shift={([xshift=.10\paperwidth]current page.south west)}]
+          \vsakMountains{white}{.28}
+        \end{scope}
+        \begin{scope}[shift={([xshift=.28\paperwidth,yshift=-5mm]current page.south west)}]
+          \vsakMountains{vsakPanelBlue}{.34}
+        \end{scope}
+        \begin{scope}[shift={([xshift=.52\paperwidth,yshift=-2mm]current page.south west)}]
+          \vsakMountains{white}{.18}
+        \end{scope}
+      \end{scope}
+      \node[anchor=center,align=center,text width=.72\paperwidth]
+        at ([yshift=4mm]current page.center)
+        {{\color{vsakOrange}\Huge\bfseries\insertsection}};
+      \node[anchor=center,align=center]
+        at ([yshift=-6mm]current page.center)
+        {{\color{white}\large\insertshorttitle}};
+    \end{tikzpicture}
+  \end{frame}
+}

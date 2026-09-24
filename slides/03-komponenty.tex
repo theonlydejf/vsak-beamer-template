@@ -1,0 +1,62 @@
+\section{Komponenty}
+
+\begin{frame}{Callouty mají jasný význam}
+  \framesubtitle{Barvu vybírej podle sdělení, ne podle nálady}
+  \begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{.48\textwidth}
+      \begin{Note}Kontext nebo doplňující informace.\end{Note}
+      \begin{Tip}Doporučení, které práci usnadní.\end{Tip}
+      \begin{Important}Klíčová myšlenka, kterou si mají lidé odnést.\end{Important}
+    \end{column}
+    \begin{column}{.48\textwidth}
+      \begin{Warning}Riziko nebo častá chyba.\end{Warning}
+      \begin{Caution}Bezprostřední nebezpečí; používat střídmě.\end{Caution}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Pravidlo a jeho zápis}
+  \begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{.48\textwidth}
+      \textbf{Výsledek}
+      \vspace{2mm}
+
+      \begin{Rule}
+        Každý nový slide zkontroluj v náhledu PDF.
+      \end{Rule}
+    \end{column}
+    \begin{column}{.48\textwidth}
+      \textbf{Zdrojový kód}
+      \vspace{2mm}
+
+      \begin{verbatim}
+\begin{Rule}
+  Text pravidla nebo
+  bezpečnostního pokynu.
+\end{Rule}
+      \end{verbatim}
+    \end{column}
+  \end{columns}
+
+  \vspace{4mm}
+  \begin{Note}
+    Tuto komponentu používej pro jedno nosné pravidlo; drobnější sdělení patří do calloutů.
+  \end{Note}
+\end{frame}
+
+\begin{frame}{Tabulka jako rychlý checklist}
+  \begin{tabularx}{\linewidth}{@{}lXl@{}}
+    \toprule
+    Kontrola & Otázka & Výsledek \\
+    \midrule
+    Čitelnost & Je text čitelný i ze zadní řady? & ano / upravit \\
+    Hierarchie & Je jasná hlavní myšlenka? & ano / upravit \\
+    Konzistence & Mají stejné prvky stejné barvy? & ano / upravit \\
+    Zdroj & Má fotografie uvedený zdroj? & ano / doplnit \\
+    \bottomrule
+  \end{tabularx}
+  \vspace{4mm}
+  \begin{Important}
+    Tabulka je pro srovnání. Odstavce v buňkách raději rozděl do samostatných slidů.
+  \end{Important}
+\end{frame}

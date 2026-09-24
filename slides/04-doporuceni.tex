@@ -1,0 +1,41 @@
+\section{Kontrola}
+
+\begin{frame}{Před exportem do PDF}
+  \begin{columns}[T,totalwidth=\textwidth]
+    \begin{column}{.48\textwidth}
+      \textbf{Obsah}
+      \begin{enumerate}
+        \item Každý slide má jeden účel.
+        \item Nadpis sděluje hlavní závěr.
+        \item Text je stručný a bez překlepů.
+        \item Obrázky něco vysvětlují.
+      \end{enumerate}
+    \end{column}
+    \begin{column}{.48\textwidth}
+      \textbf{Technická kontrola}
+      \begin{enumerate}
+        \item Překlad končí bez chyb.
+        \item Nic nepřetéká mimo slide.
+        \item Patička a číslování sedí.
+        \item PDF funguje i na jiném počítači.
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+  \vspace{4mm}
+  \begin{Warning}
+    Neupravuj barvy a rozměry přímo ve slidech. Patří do souborů v \texttt{theme/}.
+  \end{Warning}
+\end{frame}
+
+\begin{frame}{Kdy rozšířit samotnou šablonu}
+  \begin{enumerate}
+    \item Nejdřív zkus běžný slide, dva sloupce nebo velký obrázek.
+    \item Opakovaný prvek přidej do \texttt{vsak-components.sty}.
+    \item Novou barvu definuj v \texttt{vsak-colors.sty}.
+    \item Titulku, sekce a patičku měň v \texttt{beamerthemeVSAK.sty}.
+  \end{enumerate}
+  \vspace{4mm}
+  \begin{Rule}
+    Obsah používá pojmenované komponenty. Jejich vzhled se řídí centrálně, takže redesign nevyžaduje přepisovat všechny slidy.
+  \end{Rule}
+\end{frame}
