@@ -60,7 +60,7 @@
 }
 
 \setbeamertemplate{frametitle}{%
-  \vspace{1.5mm}
+  \vspace{4mm}
   \begin{beamercolorbox}[wd=\paperwidth,sep=0pt,leftskip=10mm,rightskip=10mm]{frametitle}
     {\usebeamerfont{frametitle}\insertframetitle\par}
     \ifx\insertframesubtitle\empty\else
@@ -70,13 +70,13 @@
   \vspace{1mm}
   \begin{tikzpicture}[remember picture,overlay]
     \fill[vsakLine]
-      ([xshift=10mm,yshift=-13.8mm]current page.north west)
-      rectangle ([xshift=-10mm,yshift=-14.7mm]current page.north east);
+      ([xshift=10mm,yshift=-16.3mm]current page.north west)
+      rectangle ([xshift=-10mm,yshift=-17.2mm]current page.north east);
     \draw[vsakOrange,line width=1pt]
-      ([xshift=10mm,yshift=-14.25mm]current page.north west) -- ++(34mm,0);
+      ([xshift=10mm,yshift=-16.75mm]current page.north west) -- ++(34mm,0);
     \draw[vsakPanelBlue,line width=.6pt]
-      ([xshift=45mm,yshift=-14.25mm]current page.north west)
-      -- ([xshift=-10mm,yshift=-14.25mm]current page.north east);
+      ([xshift=45mm,yshift=-16.75mm]current page.north west)
+      -- ([xshift=-10mm,yshift=-16.75mm]current page.north east);
   \end{tikzpicture}
 }
 
